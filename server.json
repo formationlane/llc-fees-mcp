@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.formationlane/llc-fees",
+  "title": "Formation Lane US LLC Fees & Deadlines",
+  "description": "US LLC formation fees, annual report fees, due dates and late penalties for 50 states + DC.",
+  "version": "1.1.0",
+  "websiteUrl": "https://formationlane.com/for-agents/mcp/",
+  "icons": [
+    { "src": "https://formationlane.com/icon-512.png", "mimeType": "image/png", "sizes": ["512x512"] }
+  ],
+  "remotes": [
+    { "type": "streamable-http", "url": "https://formationlane.com/mcp" }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "llc-fees-mcp",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Formation Lane MCP server: US LLC fees and annual-report deadlines (50 states + DC).",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://formationlane.com/for-agents/mcp/",
+  "scripts": { "test": "node scripts/smoke-local.mjs" }
+}

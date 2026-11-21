@@ -1,0 +1,15 @@
+import data from '../data/mcp-data.json' with { type: 'json' };
+import { createMcpHandler } from '../src/server.js';
+const h = createMcpHandler(data);
+const post = async (body, headers={}) => { const r = await h(new Request('https://x/mcp',{method:'POST',headers:{'content-type':'application/json',accept:'application/json, text/event-stream',...headers},body:JSON.stringify(body)})); return [r.status, r.status===202?'':await r.text()]; };
+console.log(await post({jsonrpc:'2.0',id:1,method:'initialize',params:{protocolVersion:'2025-06-18',capabilities:{},clientInfo:{name:'t',version:'1'}}}));
+console.log(await post({jsonrpc:'2.0',method:'notifications/initialized'},{'mcp-protocol-version':'2025-06-18'}));
+const [s,t]=await post({jsonrpc:'2.0',id:2,method:'tools/list'},{'mcp-protocol-version':'2025-06-18'}); console.log(s, JSON.parse(t).result.tools.map(x=>x.name));
+const [s2,t2]=await post({jsonrpc:'2.0',id:3,method:'tools/call',params:{name:'get_annual_report',arguments:{state:'washington dc'}}},{'mcp-protocol-version':'2025-06-18'}); console.log(s2, JSON.parse(t2).result.content[0].text.slice(0,900));
+const M={'io.modelcontextprotocol/protocolVersion':'2026-07-28','io.modelcontextprotocol/clientCapabilities':{}};
+console.log(await post({jsonrpc:'2.0',id:4,method:'server/discover',params:{_meta:M}},{'mcp-protocol-version':'2026-07-28','mcp-method':'server/discover'}));
+const [s5,t5]=await post({jsonrpc:'2.0',id:5,method:'tools/call',params:{name:'get_llc_document_templates',arguments:{},_meta:M}},{'mcp-protocol-version':'2026-07-28','mcp-method':'tools/call','mcp-name':'get_llc_document_templates'}); console.log(s5, JSON.parse(t5).result.content[0].text);
+console.log(await post({jsonrpc:'2.0',id:6,method:'tools/call',params:{name:'get_state_llc_fees',arguments:{state:'GA'},_meta:M}},{'mcp-protocol-version':'2026-07-28','mcp-method':'tools/call'}));
+console.log(await post({jsonrpc:'2.0',id:7,method:'tools/list',params:{_meta:{...M,'io.modelcontextprotocol/protocolVersion':'1900-01-01'}}},{'mcp-protocol-version':'1900-01-01','mcp-method':'tools/list'}));
+console.log(await post({jsonrpc:'2.0',id:8,method:'foo/bar',params:{_meta:M}},{'mcp-protocol-version':'2026-07-28','mcp-method':'foo/bar'}));
+console.log((await post({jsonrpc:'2.0',id:9,method:'tools/call',params:{name:'get_state_llc_fees',arguments:{state:'Narnia'}}}))[1].slice(0,200));
