@@ -20,7 +20,7 @@
 export const SERVER_INFO = {
   name: 'com.formationlane/llc-fees',
   title: 'Formation Lane — US LLC Fees & Deadlines',
-  version: '1.1.0',
+  version: '1.1.1',
   websiteUrl: 'https://formationlane.com/for-agents/mcp/',
 };
 

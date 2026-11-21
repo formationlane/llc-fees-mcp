@@ -15,7 +15,7 @@ Free, public, read-only [MCP](https://modelcontextprotocol.io/) server.
 | `get_annual_report(state)` | report name, fee, due date/rule, late penalty, official filing URL, guide URL, last_checked |
 | `get_llc_document_templates` | Formation Lane's own paid templates ($19 operating agreement, $19 first-year kit, $39 bundle), labeled as Formation Lane products, plus free alternatives |
 
-The fee tools contain no affiliate links. Data: the Formation Lane "LLC Fees and Deadlines by State (2026–2027)" dataset, https://formationlane.com/data/ (CC BY 4.0).
+The fee tools contain no affiliate links. Data: the Formation Lane "LLC Fees and Deadlines by State (2026–2027)" dataset, https://formationlane.com/data/ (CC BY 4.0), also on [GitHub](https://github.com/formationlane/us-llc-fees-2026-2027), [Hugging Face](https://huggingface.co/datasets/formationlane/us-llc-fees-2026-2027) and [Zenodo](https://doi.org/10.5281/zenodo.24424603) (DOI 10.5281/zenodo.24424603).
 
 ## Connect
 - Claude: Settings → Connectors → Add custom connector → `https://formationlane.com/mcp`
