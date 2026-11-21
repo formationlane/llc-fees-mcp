@@ -41,3 +41,6 @@ curl -s https://formationlane.com/mcp \
 - `scripts/` — local smoke test, SDK client test, sync script
 
 Fees change; confirm on the official state site before filing. General information, not legal or tax advice.
+
+## License
+Code: MIT (`LICENSE`). Data: CC BY 4.0 (`DATA-LICENSE.md`).
